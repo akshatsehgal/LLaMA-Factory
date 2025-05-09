@@ -1798,3 +1798,17 @@ register_template(
     format_user=StringFormatter(slots=["<human>:{{content}}\n<bot>:"]),
     format_assistant=StringFormatter(slots=["{{content}}\n"]),
 )
+
+register_template(
+    name="smollm",
+    format_system=StringFormatter(
+        slots=["<|im_start|>system\n{{content}}<|im_end|>\n"]
+    ),
+    format_user=StringFormatter(
+        slots=["<|im_start|>user\n{{content}}<|im_end|>\n"]
+    ),
+    format_assistant=StringFormatter(
+        slots=["<|im_start|>assistant\n{{content}}<|im_end|>\n"]
+    ),
+    stop_words=["<|im_end|>"],
+)
